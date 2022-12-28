@@ -1,8 +1,31 @@
 import { Navbar } from 'flowbite-react';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const TopNavbar = () => {
+  const {user,providerLogOut} = useContext(AuthContext);
+  const menuItems = <>
+  <li><Link to='/'>Home</Link></li>
+  <li><Link to='/myTask'>My Task</Link></li>
+  <li><Link to='/addTask'>AddTask</Link></li>
+  {
+    user?.uid ?
+    <>
+    <li><Link to='/completedTask'>Completed Task</Link></li>
+     
+     <button onClick={providerLogOut}>LogOut</button>
+    </>
+    
+    :
+    <>
+     
+     <li><Link to='/login'>Login</Link></li>
+     <li><Link to='/register'>Register</Link></li>
+    </>
+    
+    }
+  </>
   return (
     <div>
       <Navbar
@@ -21,9 +44,7 @@ const TopNavbar = () => {
   </Navbar.Brand>
   <Navbar.Toggle />
   <Navbar.Collapse>
-   <Link to='/addTask'>Add Task</Link>
-   <Link to='/myTask'>My Task</Link>
-   <Link to='/completedTask'>Completed Task</Link>
+   {menuItems}
   </Navbar.Collapse>
 </Navbar>
     </div>

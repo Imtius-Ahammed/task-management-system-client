@@ -4,6 +4,8 @@ import AddTask from "../../Pages/AddTask/AddTask";
 import CompletedTask from "../../Pages/CompletedTask/CompletedTask";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
+import Register from "../../Pages/Login/Register";
+import Media from "../../Pages/Media/Media";
 import MyTask from "../../Pages/MyTask/MyTask";
 const router = createBrowserRouter([
   {
@@ -19,6 +21,10 @@ const router = createBrowserRouter([
         element:<Login></Login>
       },
       {
+        path:'/register',
+        element:<Register></Register>
+      },
+      {
         path:'/addTask',
         element:<AddTask></AddTask>
       },
@@ -29,6 +35,10 @@ const router = createBrowserRouter([
       {
         path:'/completedTask',
         element:<CompletedTask></CompletedTask>
+      },
+      {
+        path:'/media',
+        element:<Media></Media>
       }
     ]
   }
