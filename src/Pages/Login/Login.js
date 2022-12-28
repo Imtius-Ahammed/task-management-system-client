@@ -67,15 +67,16 @@ const Login = () => {
   };
   return (
     <div>
-      <div className="grid lg:grid-cols-2 grid-cols-1 m-5 p-3 container mx-auto ">
+      <div className="grid lg:grid-cols-2 grid-cols-1 items-center m-5 p-3 container mx-auto ">
         <div >
-          <h1>Hello</h1>
+         
+          <img src="https://img.freepik.com/free-vector/tablet-login-concept-illustration_114360-7963.jpg?w=826&t=st=1672222851~exp=1672223451~hmac=754c38acecb95a764e0fe3b5b74e9c2fc2515d364c1465633e6e892b32e81f91" alt="" />
 
         </div>
         <div >
-        <form onSubmit={handleLogin} className="flex flex-col gap-4 border p-5">
+        <form onSubmit={handleLogin} className="flex flex-col gap-4  lg:w-3/5  mx-auto p-5">
   <div>
-    <div className="mb-2 block">
+    <div className="mb-2 block ">
       <Label
         htmlFor="email1"
         value="Your email"

@@ -1,8 +1,11 @@
 import { Button, Label, Textarea, TextInput } from 'flowbite-react';
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const AddTask = () => {
+  const{user}=useContext(AuthContext);
   const handleAddTask = (event) => {
+   
     event.preventDefault();
     const form = event.target;
   
@@ -54,7 +57,8 @@ const AddTask = () => {
       type="name"
       name='name'
       placeholder="name"
-      required={true}
+      defaultValue={user?.displayName}
+      readOnly
       shadow={true}
     />
   </div>
@@ -70,7 +74,8 @@ const AddTask = () => {
       type="email"
       name='email'
       placeholder="name@flowbite.com"
-      required={true}
+      defaultValue={user?.email}
+      readOnly
       shadow={true}
     />
   </div>

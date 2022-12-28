@@ -4,7 +4,7 @@ import { FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
-  const {createUser, updateUser} = useContext(AuthContext);
+  const {createNewUser, updateUser} = useContext(AuthContext);
   const[error,setError] =useState(null);
 
   const handleRegister = event=>{
@@ -15,7 +15,7 @@ const Register = () => {
     const photoURL = form.photoURL.value;
     const password = form.password.value;
 
-    createUser(email,password)
+    createNewUser(email,password)
     .then(result=>{
       const user = result.user;
       if(user){
@@ -45,21 +45,22 @@ const Register = () => {
   }
   return (
     <div>
-       <div className="grid lg:grid-cols-2 grid-cols-1 m-5 p-3 container mx-auto ">
+       <div className="grid lg:grid-cols-2 items-center grid-cols-1 m-5 p-3 container mx-auto ">
         <div >
-          <h1>Hello</h1>
+         
+          <img src="https://img.freepik.com/free-vector/cartoon-character-filling-form-survey-checklist-man-writing-test-signing-business-medical-document-flat-illustration_74855-20483.jpg?w=1060&t=st=1672222602~exp=1672223202~hmac=577b74f1fa9b89f08bd980941258017712ead2d7fe60bb0b721ac74e3482d872" alt="" />
 
         </div>
         <div >
-        <form onSubmit={handleRegister} className="flex flex-col gap-4 border p-5">
+        <form onSubmit={handleRegister} className="flex flex-col gap-4 lg:w-3/5 p-5 mx-auto">
   <div>
     <div className="mb-2 block">
       <Label
-        htmlFor="title"
+        htmlFor="name"
         value="Your name"
       />
     </div>
-    <input type="text" name='name' />
+   <TextInput name='name' type='text' className='input input-bordered' required={true}></TextInput>
   </div>
   <div>
     <div className="mb-2 block">
