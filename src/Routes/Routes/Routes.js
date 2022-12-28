@@ -7,6 +7,7 @@ import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Login/Register";
 import Media from "../../Pages/Media/Media";
 import MyTask from "../../Pages/MyTask/MyTask";
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 const router = createBrowserRouter([
   {
     path:'/',
@@ -26,19 +27,19 @@ const router = createBrowserRouter([
       },
       {
         path:'/addTask',
-        element:<AddTask></AddTask>
+        element:<PrivateRoutes><AddTask></AddTask></PrivateRoutes>
       },
       {
         path:'/myTask',
-        element:<MyTask></MyTask>
+        element:<PrivateRoutes><MyTask></MyTask></PrivateRoutes>
       },
       {
         path:'/completedTask',
-        element:<CompletedTask></CompletedTask>
+        element:<PrivateRoutes><CompletedTask></CompletedTask></PrivateRoutes>
       },
       {
         path:'/media',
-        element:<Media></Media>
+        element:<PrivateRoutes><Media></Media></PrivateRoutes>
       }
     ]
   }
