@@ -5,7 +5,7 @@ import { FaBeer } from 'react-icons/fa';
 const FooterSec = () => {
   return (
     <div>
-      <Footer className='bg-green-200' container={true}>
+      <Footer className='bg-blue-200 ' container={true}>
   <div className="w-full">
     <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
       <div>
@@ -16,7 +16,7 @@ const FooterSec = () => {
           name="Flowbite"
         />
       </div>
-      <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
+      <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6 ">
         <div>
           <Footer.Title title="about" />
           <Footer.LinkGroup col={true}>

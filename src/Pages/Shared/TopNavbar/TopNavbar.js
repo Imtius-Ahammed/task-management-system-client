@@ -5,7 +5,7 @@ import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 
 const TopNavbar = () => {
-  const {user,providerLogOut} = useContext(AuthContext);
+  const {user,logOut} = useContext(AuthContext);
   
   
   const menuItems = <>
@@ -17,7 +17,7 @@ const TopNavbar = () => {
     <>
     <li><Link to='/completedTask'>Completed Task</Link></li>
      
-     <button onClick={providerLogOut}>LogOut</button>
+     <button onClick={logOut}>LogOut</button>
     </>
     
     :

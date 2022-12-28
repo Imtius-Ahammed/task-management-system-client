@@ -1,70 +1,67 @@
 
-import { Accordion, Button, Card } from 'flowbite-react';
+import {  Button, Card } from 'flowbite-react';
 import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 
 const MyTask = () => {
 const{user} = useContext(AuthContext);
-const [allData, setData] = useState([]);
+const [dailyTasks, setDailyTasks] = useState([]);
 
-  
- 
- 
 
  
   useEffect(() => {
     
-      fetch(`http://localhost:5000/allTasks/${user?.email}`)
+      fetch(`http://localhost:5000/dailyTasks/${user?.email}`)
         .then((res) => res.json())
         .then((data) => {
-          setData(data)
+          setDailyTasks(data)
           console.log(data)
           
         });
    
   }, []);
 
+  const handleCompleted = (id) => {
+    fetch(
+      `http://localhost:5000/dailyTasks/${id}`,
+      {
+        method: "PUT",
+       
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          alert("Task Completed successfully.");
+          
+        }
+      });
+  };
+
   
   return (
     <div>
-     <div>
-      
-     {
-        allData.map(data=><Accordion flush={true} data={data._id} alwaysOpen={true}>
-          <Accordion.Panel>
-            <Accordion.Title>
-              
-            <h5 className="text-2xl font-bold  text-gray-900 dark:text-white">
-      {data.taskTitle}
-    </h5>
-              
-            </Accordion.Title>
-            <Accordion.Content>
-            <div className="container mx-auto">
-  <Card >
-  <div className='flex  '>
-   <div className='w-1/2'>
-   <img className=' mx-auto' src={data.img} alt="" />
-   </div>
-  
-  <div className='w-full'>
-  <h2 className='text-3xl font-bold'>Task Description</h2>
-  <textarea style={{width:"100%"}} name="" id="" cols="70" rows="10" disabled className='border-0'>{data.description}</textarea>
-    <div className='flex justify-center'>
-      <Button >Completed Task</Button>
-    </div>
-  </div>
-   </div>
-  </Card>
-</div>
-        
-            </Accordion.Content>
-           
-          </Accordion.Panel>
-         
-        </Accordion>
-        )
+    
+    <div className='container mx-auto '>
+      {
+        dailyTasks.map(tasks=><Card className='mb-3' key={tasks._id}>
+          <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+           {tasks.taskTitle}
+          </h5>
+          <p className="font-normal text-gray-700 dark:text-gray-400">
+           {tasks.description}
+          </p>
+          <div className='flex justify-center'>
+          <Link to='/completedTask'> {tasks?.role==='taskCompleted' ? <><Button>Completed</Button>  </>: <Button onClick={()=>handleCompleted(tasks._id)}  >Complete Task</Button> }
+          
+          
+          </Link>
+          </div>
+        </Card>)
+
       }
      </div>
       

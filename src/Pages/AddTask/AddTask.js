@@ -101,7 +101,7 @@ const AddTask = () => {
     <div className="mb-2 block">
       <Label
         htmlFor="img1"
-        value="Task Image Link"
+        value="Task Image "
       />
     </div>
     <TextInput
