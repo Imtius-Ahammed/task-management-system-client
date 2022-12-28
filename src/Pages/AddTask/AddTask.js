@@ -12,12 +12,14 @@ const AddTask = () => {
     const name = form.name.value;
     const email = form.email.value;
     const img = form.img.value;
+    const taskTitle = form.taskTitle.value;
   
     const description = form.description.value;
 
     const newService = {
      
       name,
+      taskTitle,
       email,
       img,
     
@@ -82,8 +84,24 @@ const AddTask = () => {
   <div>
     <div className="mb-2 block">
       <Label
+        htmlFor="taskTitle"
+        value="Task title"
+      />
+    </div>
+    <TextInput
+      id="taskTitle"
+      type="text"
+      name='taskTitle'
+      placeholder="..."
+      required
+      shadow={true}
+    />
+  </div>
+  <div>
+    <div className="mb-2 block">
+      <Label
         htmlFor="img1"
-        value="Your password"
+        value="Task Image Link"
       />
     </div>
     <TextInput
