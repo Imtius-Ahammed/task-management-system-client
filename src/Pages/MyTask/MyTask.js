@@ -45,7 +45,7 @@ const [dailyTasks, setDailyTasks] = useState([]);
   return (
     <div>
     
-    <div className='container mx-auto my-10  grid lg:grid-cols-2 grid-cols-1 lg:h-96 '>
+    <div className='container mx-auto   grid lg:grid-cols-2 grid-cols-1 lg:h-96 '>
       {
         dailyTasks.map(tasks=><Card className='m-3 shadow-xl shadow-green-300 bg-sky-200 rounded-2xl ' key={tasks._id}>
           <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">

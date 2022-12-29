@@ -105,10 +105,12 @@ const Login = () => {
       required={true}
     />
   </div>
+  
  
   <Button type="submit">
     Submit
   </Button>
+  <Link className='underline text-red-500' to='/register'>Don't Have any Account?</Link>
 </form>
 <div className="flex justify-evenly  mt-6">
                     <div className="flex flex-col items-center">

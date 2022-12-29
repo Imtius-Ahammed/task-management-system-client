@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react';
 import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import Banner from '../Banner/Banner';
+import FooterSec from '../../Shared/FooterSec/FooterSec';
 
 const Home = () => {
 
@@ -48,7 +49,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className='pb-10'>
      
       <Banner></Banner>
       <Form onSubmit={handleDailyTask}>
@@ -115,7 +116,7 @@ const Home = () => {
      <div>
      <Link to='/myTask'> <h1 className='text-5xl font-bold p-5 underline'>View Details</h1></Link>
      </div>
-      
+     <FooterSec></FooterSec>
     </div>
   );
 };

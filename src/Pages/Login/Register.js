@@ -1,6 +1,7 @@
 import { Button, Label, TextInput } from 'flowbite-react';
 import React, { useContext, useState } from 'react';
 import { FaGoogle } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
@@ -53,6 +54,7 @@ const Register = () => {
         </div>
         <div >
         <form onSubmit={handleRegister} className="flex flex-col gap-4 lg:w-3/5 p-5 mx-auto">
+          <h1 className='text-2xl font-bold'>Register Now!!</h1>
   <div>
     <div className="mb-2 block">
       <Label
@@ -106,23 +108,13 @@ const Register = () => {
       required={true}
     />
   </div>
+  <Link className='underline text-red-500' to='/login'>Already Have an Account?</Link>
  
   <Button type="submit">
-    Submit
+    Register
   </Button>
 </form>
-<div className="flex justify-evenly  mt-6">
-                    <div className="flex flex-col items-center">
-                      <div>
-                      {/* <FaGoogle onClick={handleGoogleSignIn} className='cursor-pointer text-3xl '></FaGoogle> */}
 
-                      </div>
-                      <div>
-                      Google
-                      </div>
-                     
-                    </div>
-        </div>
      
                   </div>
 
