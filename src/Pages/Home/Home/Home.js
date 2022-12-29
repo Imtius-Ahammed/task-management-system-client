@@ -1,10 +1,15 @@
 import { Button, Label, Textarea, TextInput } from 'flowbite-react';
-import React, { useContext } from 'react';
-import { Form, Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import Banner from '../Banner/Banner';
 
 const Home = () => {
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || '/';
   const{user}=useContext(AuthContext);
   const handleDailyTask = (event) => {
     
@@ -36,6 +41,7 @@ const Home = () => {
         if (data.acknowledged) {
           alert("Successfully Addeded Daily Task");
           form.reset();
+          navigate('/myTask');
         }
       })
       .catch((er) => console.error(er));
@@ -47,18 +53,19 @@ const Home = () => {
       <Banner></Banner>
       <Form onSubmit={handleDailyTask}>
       <div className='pt-4 container mx-auto lg:w-2/5 rounded-xl p-5 m-5 shadow-xl shadow-blue-200 '>
-        <h3>Enter your Task</h3>
+        <h3 className='text-2xl font-bold p-3'>Enter your Task</h3>
         <div>
     <div className="mb-2 block">
       <Label
         htmlFor="email"
-        value="Email"
+        value="Data & Time"
       />
     </div>
     <input className='mb-2 ' type="datetime-local" required name="dateTime" id="" />
     <TextInput
     name='email'
      defaultValue={user?.email}
+   
      readOnly
      
     />
@@ -77,6 +84,8 @@ const Home = () => {
       name='taskTitle'
       placeholder="..."
       required
+      
+        
       shadow={true}
     />
    
@@ -92,6 +101,8 @@ const Home = () => {
       id="description"
       type="text"
       name='description'
+      
+     
       required={true}
       shadow={true}
     />

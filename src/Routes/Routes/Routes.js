@@ -7,6 +7,7 @@ import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Login/Register";
 import Media from "../../Pages/Media/Media";
 import MyTask from "../../Pages/MyTask/MyTask";
+import Update from "../../Pages/Update/Update";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 const router = createBrowserRouter([
   {
@@ -40,6 +41,11 @@ const router = createBrowserRouter([
       {
         path:'/media',
         element:<PrivateRoutes><Media></Media></PrivateRoutes>
+      },
+      {
+        path:'/update/:id',
+        element:<PrivateRoutes><Update></Update></PrivateRoutes>,
+        loader:({params})=> fetch(`http://localhost:5000/update/${params.id}`)
       }
     ]
   }

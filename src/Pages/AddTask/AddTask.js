@@ -45,8 +45,8 @@ const AddTask = () => {
   };
   return (
     <div>
-      <h2>This si add task</h2>
-      <form className="flex flex-col gap-4 container mx-auto lg:w-2/5" onSubmit={handleAddTask}>
+      <h2 className='text-3xl font-bold p-5'>Add Your Task Here</h2>
+      <form className="flex flex-col gap-4 container mx-auto lg:w-2/5 my-10" onSubmit={handleAddTask}>
   <div>
     <div className="mb-2 block">
       <Label

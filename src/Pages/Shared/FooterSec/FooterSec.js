@@ -1,11 +1,11 @@
 import { Footer } from 'flowbite-react';
 import React from 'react';
-import { FaBeer } from 'react-icons/fa';
+import { FaBeer, FaFacebook, FaTelegram, FaWhatsapp } from 'react-icons/fa';
 
 const FooterSec = () => {
   return (
     <div>
-      <Footer className='bg-blue-200 ' container={true}>
+      <Footer className='bg-sky-200 ' container={true}>
   <div className="w-full">
     <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
       <div>
@@ -59,27 +59,10 @@ const FooterSec = () => {
         by="Flowbite™"
         year={2022}
       />
-      <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
-        {/* <Footer.Icon
-          href="#"
-          icon={BsFacebook}
-        />
-        <Footer.Icon
-          href="#"
-          icon={BsInstagram}
-        />
-        <Footer.Icon
-          href="#"
-          icon={BsTwitter}
-        />
-        <Footer.Icon
-          href="#"
-          icon={BsGithub}
-        />
-        <Footer.Icon
-          href="#"
-          icon={BsDribbble}
-        /> */}
+      <div className="mt-4 flex space-x-6 sm:mt-0 text-2xl sm:justify-center">
+       <FaFacebook></FaFacebook>
+       <FaTelegram></FaTelegram>
+       <FaWhatsapp></FaWhatsapp>
       </div>
     </div>
   </div>

@@ -10,12 +10,14 @@ const TopNavbar = () => {
   
   const menuItems = <>
   <li><Link to='/'>Home</Link></li>
-  <li><Link to='/myTask'>My Task</Link></li>
-  <li><Link to='/addTask'>AddTask</Link></li>
+ 
   {
     user?.uid ?
     <>
     <li><Link to='/completedTask'>Completed Task</Link></li>
+    <li><Link to='/myTask'>My Task</Link></li>
+    <li><Link to='/addTask'>AddTask</Link></li>
+    <li><Link to='/Media'>Media</Link></li>
      
      <button onClick={logOut}>LogOut</button>
     </>
@@ -31,7 +33,7 @@ const TopNavbar = () => {
   </>
   return (
     <div>
-      <Navbar
+      <Navbar className='bg-sky-200'
   fluid={true}
   rounded={true}
 >

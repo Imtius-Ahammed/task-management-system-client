@@ -27,12 +27,13 @@ const Media = () => {
     
     return (
       <div>
-       <div>
+       <div >
+        <h3 className='text-3xl font-bold p-4'>This is Media Routes </h3>
         
        {
-          allData.map(data=><Accordion  className="container mx-auto" flush={true} data={data._id} alwaysOpen={true}>
+          allData.map(data=><Accordion  className="container mx-auto bg-sky-300   my-10 " flush={true} data={data._id} alwaysOpen={true}>
             <Accordion.Panel>
-              <Accordion.Title>
+              <Accordion.Title className='text-white'>
         <div className='flex justify-center'>
                   
         <h5 className="text-2xl font-bold  text-gray-900 dark:text-white">
@@ -41,7 +42,7 @@ const Media = () => {
         </div>
                 
               </Accordion.Title>
-              <Accordion.Content>
+              <Accordion.Content  className='bg-sky-200'>
               <div >
     <Card >
     <div className='flex  '>
@@ -52,8 +53,9 @@ const Media = () => {
     <div className='w-full'>
     <h2 className='text-3xl font-bold'>Task Description</h2>
     <textarea style={{width:"100%"}} name="" id="" cols="70" rows="10" disabled className='border-0'>{data.description}</textarea>
-      <div className='flex justify-center'>
-       <Link to='/completedTask'> <Button >Completed Task</Button></Link>
+      <div className='flex justify-center gap-2'>
+       <Link to='/completedTask'> <Button className='text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2'>Completed Task</Button></Link>
+       <Link to={`/update/${data._id}`}> <Button className='text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 shadow-lg shadow-teal-500/50 dark:shadow-lg dark:shadow-teal-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2' >Update</Button></Link>
       </div>
     </div>
      </div>
